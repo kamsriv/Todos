@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using TodoAPI.Modals;
 
@@ -51,6 +52,7 @@ namespace TodoAPI.Controllers
             return Ok($"Added {todos.Count()} todos successfully");
         }
         [HttpPost("Todo")]
+        [EnableCors("_origins")]
         public IActionResult CreateTodo(Todo todo)
         {
             _db.TblTodo.Add(todo);

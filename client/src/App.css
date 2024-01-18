@@ -29,11 +29,10 @@
 }
 span{
     padding: 0 0.5em 0 0.5em;
-    max-width:10em;
+    max-width:100em;
 }
 .item-completed {
     text-decoration: line-through;
-    
 }
 .item-active{
    color:green;

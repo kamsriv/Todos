@@ -7,6 +7,17 @@ type Props = {
     value: string;
 };
 
+let addTodo = (name: string)=>{
+    fetch("http://localhost:5107/WeatherForecast/Todo", {
+        method: "POST",
+        body: JSON.stringify({id:1,title:name,status:true}),
+        mode: "cors",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+}
+
 function Input({ onChange, name, placeholder, value = "" }: Props) {
     return (
         <>
@@ -17,7 +28,7 @@ function Input({ onChange, name, placeholder, value = "" }: Props) {
             value={value}
         />
         <button
-            onClick={event => { console.log(value); } }
+                onClick={event => { addTodo(value); } }
             >Add</button>
         </>
     );

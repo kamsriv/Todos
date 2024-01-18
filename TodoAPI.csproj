@@ -8,7 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="client\src\components\todo.ts" />
+    <Compile Remove="client\**" />
+    <Content Remove="client\**" />
+    <EmbeddedResource Remove="client\**" />
+    <None Remove="client\**" />
+    <TypeScriptCompile Remove="client\**" />
+    <TypeScriptCompile Remove="node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>

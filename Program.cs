@@ -9,6 +9,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSqlite<DBConnection>("Data Source=Todos.db");
+
+builder.Services.AddCors(options => options.AddPolicy("_origins", policy => { policy.WithOrigins("https://localhost:3000/").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin(); })) ;
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -16,7 +18,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors("_origins");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
